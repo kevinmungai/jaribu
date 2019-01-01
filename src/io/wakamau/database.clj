@@ -7,13 +7,12 @@
 
   (start [component]
     (println ";; Starting Database")
-    (let [connection (atom {})]
+    (let [connection (atom {:name "kevin"})]
       (assoc component :connection connection)))
 
   (stop [component]
     (println ";; Stoppping Database")
-    (swap! (:connection component)
-           empty)))
+    component))
 
 (defn new-database
   [host port]
