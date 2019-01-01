@@ -1,7 +1,15 @@
-(ns io.wakamau.routes)
+(ns io.wakamau.routes
+  (:require [com.grzm.component.pedestal :as cp]))
 
 (defn respond-hello [request]
   {:status 200 :body "Hello, world!"})
 
+(defn show-db
+  [request]
+  (let [database (cp/use-component request :database)]
+    {:status 200
+     :body (str @(:connection database))}))
+
 (def routes
-  #{["/greet" :get respond-hello :route-name :greet]})
+  #{["/greet" :get respond-hello :route-name :greet]
+    ["/db" :get [(cp/using-component :database) `show-db]]})
