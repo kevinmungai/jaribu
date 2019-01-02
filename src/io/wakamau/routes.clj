@@ -10,6 +10,10 @@
     {:status 200
      :body (str @(:connection database))}))
 
+(def show-db-interceptor
+  {:name :show-db-interceptor
+   :enter (fn [context] context)})
+
 (def routes
   #{["/greet" :get respond-hello :route-name :greet]
     ["/db" :get [(cp/using-component :database) `show-db]]})

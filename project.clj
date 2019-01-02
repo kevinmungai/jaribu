@@ -19,5 +19,11 @@
                  [com.grzm/component.pedestal "0.1.7"];; pedestal component wrapper
                  ]
   :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.11"]
-                                  [com.stuartsierra/component.repl "0.2.0"]]
-                   :source-paths ["dev"]}})
+                                  [com.stuartsierra/component.repl "0.2.0"]
+                                  [io.pedestal/pedestal.service-tools "0.5.5"]]
+                   :source-paths ["dev"]
+                   }
+             ;; :uberjar {:aot [io.wakamau.jaribu]}
+             }
+  ;; :main ^{:skip-aot true} io.wakamau.jaribu
+  )

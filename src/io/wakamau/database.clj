@@ -7,7 +7,7 @@
 
   (start [component]
     (println ";; Starting Database")
-    (let [connection (atom {:name "kevin"})]
+    (let [connection (atom {:name "mungai"})]
       (assoc component :connection connection)))
 
   (stop [component]

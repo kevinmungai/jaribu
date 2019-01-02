@@ -20,7 +20,7 @@
    [clojure.tools.namespace.repl :refer [refresh refresh-all clear]]
    [com.stuartsierra.component :as component]
    [com.stuartsierra.component.repl :refer [reset set-init start stop system]]
-   [io.wakamau.jaribu]
+   [io.wakamau.jaribu :as jaribu]
    [io.wakamau.database :as database]
    [io.wakamau.routes :as routes]
    [io.pedestal.http :as http]
@@ -32,10 +32,12 @@
 
 (defn new-pedestal
   []
-  (-> {::http/routes #(route/expand-routes (deref #'routes/routes))
-       ::http/type :jetty
-       ::http/port 8890
-       ::http/join? false}
+
+  (-> jaribu/service
+      (merge {:env :dev
+              ;; ::http/routes #(route/expand-routes (deref #'routes/routes))
+              ;; ::http/type :jetty
+              ::http/join? false})
       http/default-interceptors
       http/dev-interceptors
       ))
