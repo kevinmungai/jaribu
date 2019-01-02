@@ -12,7 +12,7 @@ It is very flexible, one is not tied down to a particular deployment environment
 At the core of Pedestal is the concept of the **interceptor**.
 
 > An interceptor is a pair of unary functions. Each function is called with a context map and must return either a context map or a channel that will deliver a context map.
-
+>
 > Pedestal calls the `:enter` function on the way "in" to handling a request. It calls the `:leave` function on the way back "out".
 
 The `:enter` functions of interceptors are called in stack-line manner *last in, first out* and when all the functions are done, the `:leave` functions are called in a queue-like manner *first in, first out*. 

@@ -15,6 +15,10 @@
    ::http/routes routes/routes
    ::http/resource-path "/public"
    ::http/type :jetty
+   ;; all origins are allowed in dev mode
+   ;; ::http/allowed-origins {:creds true :allowed-origins (constantly true)}
+   ;; Content Security Policy (CSP) is mostly turned off in dev mode
+   ;; ::http/secure-headers {:content-security-policy-settings {:object-src "'none'"}}
    ::http/port 8080
    ::http/container-options {:h2c? true
                              :h2? false

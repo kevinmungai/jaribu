@@ -6,7 +6,7 @@
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [com.stuartsierra/component "0.3.2"]
                  [io.pedestal/pedestal.service       "0.5.5"]
-                 [io.pedestal/pedestal.service-tools "0.5.5"] ;; Only needed for ns-watching; WAR tooling
+                 ;; [io.pedestal/pedestal.service-tools "0.5.5"] ;; Only needed for ns-watching; WAR tooling
                  [io.pedestal/pedestal.jetty         "0.5.5"]
                  [ch.qos.logback/logback-classic "1.2.3" :exclusions [org.slf4j/slf4j-api]]
                  [org.slf4j/jul-to-slf4j "1.7.25"]
@@ -26,4 +26,5 @@
              ;; :uberjar {:aot [io.wakamau.jaribu]}
              }
   ;; :main ^{:skip-aot true} io.wakamau.jaribu
+  :resource-paths ["config", "resources"]
   )

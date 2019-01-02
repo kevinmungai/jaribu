@@ -32,7 +32,7 @@
 
 (defn new-pedestal
   []
-
+  (println "\nstarting your [DEVELOPMENT] server...\n")
   (-> jaribu/service
       (merge {:env :dev
               ;; ::http/routes #(route/expand-routes (deref #'routes/routes))

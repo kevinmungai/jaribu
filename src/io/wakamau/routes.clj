@@ -2,7 +2,7 @@
   (:require [com.grzm.component.pedestal :as cp]))
 
 (defn respond-hello [request]
-  {:status 200 :body "Hello, world!"})
+  {:status 200 :body "Hello, Kamau!"})
 
 (defn show-db
   [request]
@@ -15,5 +15,5 @@
    :enter (fn [context] context)})
 
 (def routes
-  #{["/greet" :get respond-hello :route-name :greet]
+  #{["/greeter" :get respond-hello :route-name :greet]
     ["/db" :get [(cp/using-component :database) `show-db]]})
