@@ -23,8 +23,10 @@
                                   [io.pedestal/pedestal.service-tools "0.5.5"]]
                    :source-paths ["dev"]
                    }
-             ;; :uberjar {:aot [io.wakamau.jaribu]}
+             :uberjar {:aot [io.wakamau.jaribu]}
              }
-  ;; :main ^{:skip-aot true} io.wakamau.jaribu
+  :main ^{:skip-aot true} io.wakamau.jaribu
   :resource-paths ["config", "resources"]
+  :min-lein-version "2.0.0"
+  :repl-options {:init-ns user}
   )

@@ -6,12 +6,12 @@
   component/Lifecycle
 
   (start [component]
-    (println ";; Starting Database")
+    (println "\nStarting Database...\n")
     (let [connection (atom {:name "mungai"})]
       (assoc component :connection connection)))
 
   (stop [component]
-    (println ";; Stoppping Database")
+    (println "\nStopping Database...\n")
     component))
 
 (defn new-database
